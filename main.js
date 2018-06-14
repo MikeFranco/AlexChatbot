@@ -12,6 +12,17 @@ const bot = new BootBot({
     appSecret: config.get('appSecret')
 });
 
+bot.hear(['stalker'], (payload, chat) => {
+
+  chat.getUserProfile().then((user) => {
+
+      console.log(user);
+      chat.say(`Hola ${user.first_name}`);
+
+  });
+
+});
+
 bot.hear(["hello", "hi", "holi", /hola(Hola)?/i, "que onda", "que pez", "que pedo", "que ondon" ], (payload, chat) =>{
   const text = payload.message.text;
   console.log(payload);
@@ -20,7 +31,7 @@ bot.hear(["hello", "hi", "holi", /hola(Hola)?/i, "que onda", "que pez", "que ped
 
 bot.hear(["cuál es tu edad?", "cuántos años tienes?", "cual es tu edad?", "" ], (payload, chat)=>{
   const text= payload.message.text;
-  chat.say("Nací el 8 de Junio del 2018 a las 20:43 👶🏼")
+  chat.say("Nací el 8 de Junio del 2018 a las 20:43 👶🏼", {typing:true})
 })
 
 
