@@ -5,6 +5,8 @@ const BootBot = require('bootbot');
 const axios = require("axios");
 let port = process.env.PORT||3000;
 const config = require('config');
+const fetch = require('node-fetch');
+const GIPHY_URL = 'http://api.giphy.com/v1/gifs/search?api_key=dc6zaT0xFJmzC&q='
 
 const bot = new BootBot({
     accessToken: config.get('accessToken'),
@@ -15,7 +17,7 @@ const bot = new BootBot({
 bot.hear([/hello(Hello)?/i, "hi", "holi", /hola(Hola)?/i, "que onda", "que pez", "que pedo", "que ondon" ], (payload, chat) => {
 
   chat.getUserProfile().then((user) => {
-      chat.say(`Hola ${user.first_name} ${user.lastname}`, "soy Alex, tu asistente personal 📱", {typing:true});
+      chat.say(`Hola ${user.first_name}`, "soy Alex, tu asistente personal 📱", {typing:true});
 
   });
 });
@@ -38,6 +40,19 @@ bot.hear(["menu", "menú", "dame tu menú", "dame tu menú", "me puedes dar tu m
     quickReplies: ["Programar", "Comer", "Dormir", "Ir al baño"]
   })
 });
+
+bot.hear(/gif (.*)/i, (payload, chat, data)=>{
+  const query = data.match[1];
+  chat.say("Buscando el mejor Gif de: ", query, {typing:true});
+  fetch(GIPHY_URL + query)
+    .then(res => res.json())
+    .then(json =>{
+      chat.say({
+        attachment: 'image',
+        url: json.data[0].images.fixed_height.url
+      });
+    })
+})
 
 bot.hear(["Programar"], (payload, chat)=>{
   chat.say("Me encanta programar 💙", {typing:true});
