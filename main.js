@@ -12,22 +12,14 @@ const bot = new BootBot({
     appSecret: config.get('appSecret')
 });
 
-bot.hear(['stalker'], (payload, chat) => {
+bot.hear([/hello(Hello)?/i, "hi", "holi", /hola(Hola)?/i, "que onda", "que pez", "que pedo", "que ondon" ], (payload, chat) => {
 
   chat.getUserProfile().then((user) => {
-
-      console.log(user);
-      chat.say(`Hola ${user.first_name}`);
+      chat.say(`Hola ${user.first_name} ${user.lastname}`, "soy Alex, tu asistente personal 📱", {typing:true});
 
   });
-
 });
 
-bot.hear(["hello", "hi", "holi", /hola(Hola)?/i, "que onda", "que pez", "que pedo", "que ondon" ], (payload, chat) =>{
-  const text = payload.message.text;
-  console.log(payload);
-  chat.say("Hola, soy Alex, tu asistente personal 📱", {typing:true})
-})
 
 bot.hear(["cuál es tu edad?", "cuántos años tienes?", "cual es tu edad?", "" ], (payload, chat)=>{
   const text= payload.message.text;
