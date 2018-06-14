@@ -4,11 +4,12 @@
 const BootBot = require('bootbot');
 const axios = require("axios");
 let port = process.env.PORT||3000;
+const config = require('config');
 
 const bot = new BootBot({
-  accessToken: 'EAACzajM9aKMBACh6ZBVYfqFvRKGxZBKqhT3tfdxYa3Kx4VvTngrjRjkTyRNbz4QDMN8RBZBvmPJZCZATmmgZALqjwAZBFYPcGmGvzQm6Eje1K4OtNovcdBMRYovHGFEgHlXLsguMeegiz8U6voXG9WBfdBJkN9gvbNEkmSsgZAP217CCjZBJCCvNs',
-  verifyToken: 'MiToken',
-  appSecret: 'ffe4ce29ef625cfdd187a9b09093798a'
+    accessToken: config.get('accessToken'),
+    verifyToken: config.get('verifyToken'),
+    appSecret: config.get('appSecret')
 });
 
 bot.hear(["hello", "hi", "holi", /hola(Hola)?/i, "que onda", "que pez", "que pedo", "que ondon" ], (payload, chat) =>{

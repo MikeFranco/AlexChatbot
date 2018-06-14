@@ -5,7 +5,8 @@
   "main": "main.js",
   "dependencies": {
     "axios": "^0.18.0",
-    "bootbot": "^1.0.15"
+    "bootbot": "^1.0.15",
+    "config": "^1.30.0"
   },
   "devDependencies": {},
   "scripts": {
