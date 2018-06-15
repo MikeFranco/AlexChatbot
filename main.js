@@ -51,7 +51,7 @@ bot.hear(/gif (.*)/i, (payload, chat, data)=>{
      chat.say({
       attachment: 'image',
       url: json.data[0].images.fixed_height.url
-      text: json.data[]
+      //text: json.data[]
     }); 
     
     })
