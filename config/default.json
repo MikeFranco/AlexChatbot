@@ -1,6 +1,6 @@
 {
   "_comment":"Cambia le nombre de este archivo a default.json, y sustituye los token por los tuyos",
-  "accessToken": "EAACzajM9aKMBACh6ZBVYfqFvRKGxZBKqhT3tfdxYa3Kx4VvTngrjRjkTyRNbz4QDMN8RBZBvmPJZCZATmmgZALqjwAZBFYPcGmGvzQm6Eje1K4OtNovcdBMRYovHGFEgHlXLsguMeegiz8U6voXG9WBfdBJkN9gvbNEkmSsgZAP217CCjZBJCCvNs",
+  "accessToken": "",
   "verifyToken": "MiToken",
-  "appSecret": "ffe4ce29ef625cfdd187a9b09093798a"
+  "appSecret": ""
 }
