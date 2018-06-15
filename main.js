@@ -7,6 +7,8 @@ let port = process.env.PORT||3000;
 const config = require('config');
 const fetch = require('node-fetch');
 const GIPHY_URL = 'https://api.giphy.com/v1/gifs/search?api_key=MpYTpkUU0gkgcqPKLEC9SZmwKBITW60U&q='
+let max = 99;
+let min = 0;
 
 const bot = new BootBot({
     accessToken: config.get('accessToken'),
@@ -50,7 +52,7 @@ bot.hear(/gif (.*)/i, (payload, chat, data)=>{
   .then(json =>{
      chat.say({
       attachment: 'image',
-      url: json.data[3].images.fixed_height.url
+      url: json.data[Math.random()*(max - min) + min].images.fixed_height.url
       
     }); 
     
