@@ -9,6 +9,7 @@ const fetch = require('node-fetch');
 const GIPHY_URL = 'https://api.giphy.com/v1/gifs/search?api_key=MpYTpkUU0gkgcqPKLEC9SZmwKBITW60U&q='
 let max = 99;
 let min = 0;
+let random = Math.random()*(max - min) + min;
 
 const bot = new BootBot({
     accessToken: config.get('accessToken'),
@@ -52,7 +53,7 @@ bot.hear(/gif (.*)/i, (payload, chat, data)=>{
   .then(json =>{
      chat.say({
       attachment: 'image',
-      url: json.data[Math.random()*(max - min) + min].images.fixed_height.url
+      url: json.data[random].images.fixed_height.url
       
     }); 
     
