@@ -6,7 +6,7 @@ const axios = require("axios");
 let port = process.env.PORT||3000;
 const config = require('config');
 const fetch = require('node-fetch');
-const GIPHY_URL = 'https://api.giphy.com/v1/gifs/search?api_key=MpYTpkUU0gkgcqPKLEC9SZmwKBITW60U&q=cat&limit=25&offset=0&rating=G&lang=en'
+const GIPHY_URL = 'https://api.giphy.com/v1/'
 
 const bot = new BootBot({
     accessToken: config.get('accessToken'),
