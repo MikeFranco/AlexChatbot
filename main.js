@@ -11,7 +11,7 @@ let min = 0;
 let max = 99;
 
 function getRandomInt(min, max) {
-  return Math.floor(Math.random()*100);
+  return Math.floor(Math.random());
 }
 
 
