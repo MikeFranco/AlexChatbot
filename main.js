@@ -7,7 +7,8 @@ let port = process.env.PORT||3000;
 const config = require('config');
 const fetch = require('node-fetch');
 const GIPHY_URL = 'https://api.giphy.com/v1/gifs/search?api_key=MpYTpkUU0gkgcqPKLEC9SZmwKBITW60U&q='
-
+let min = 0;
+let max = 99;
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random()*100);
