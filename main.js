@@ -10,7 +10,7 @@ const GIPHY_URL = 'https://api.giphy.com/v1/gifs/search?api_key=MpYTpkUU0gkgcqPK
 
 
 function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (99 - 0)) + 0;
+  return Math.floor(Math.random())
 }
 
 
