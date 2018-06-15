@@ -6,7 +6,7 @@ const axios = require("axios");
 let port = process.env.PORT||3000;
 const config = require('config');
 const fetch = require('node-fetch');
-const GIPHY_URL = 'http://api.giphy.com/v1/gifs/search?api_key=dc6zaT0xFJmzC&q='
+const GIPHY_URL = 'https://api.giphy.com/v1/gifs/search?api_key=MpYTpkUU0gkgcqPKLEC9SZmwKBITW60U&q=cat&limit=25&offset=0&rating=G&lang=en'
 
 const bot = new BootBot({
     accessToken: config.get('accessToken'),
@@ -43,7 +43,7 @@ bot.hear(["menu", "menú", "dame tu menú", "dame tu menú", "me puedes dar tu m
 
 bot.hear(/gif (.*)/i, (payload, chat, data)=>{
   const query = data.match[1];
-  chat.say("Buscando el mejor Gif de: ", query, {typing:true});
+  chat.say(`Buscando el mejor Gif de: ${query}`, {typing:true});
   fetch(GIPHY_URL + query)
     .then(res => res.json())
     .then(json =>{
