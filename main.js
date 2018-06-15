@@ -22,7 +22,7 @@ const bot = new BootBot({
 bot.hear([/hello(Hello)?/i, "hi", "holi", /hola(Hola)?/i, "que onda", "que pez", "que pedo", "que ondon" ], (payload, chat) => {
 
   chat.getUserProfile().then((user) => {
-      chat.say(`Hola ${user.first_name}`, "soy Alex, tu asistente personal 📱", {typing:true});
+      chat.say(`Hola ${user.first_name} soy Alex, tu asistente personal 📱`, {typing:true});
 
   });
 });
@@ -55,8 +55,8 @@ bot.hear(/gif (.*)/i, (payload, chat, data)=>{
   .then(json =>{
      chat.say({
       attachment: 'image',
-      //url: json.data[Math.floor(Math.random()*100)].images.fixed_height.url
-      url: json.data[new Date().getUTCSeconds()].images.fixed_height.url
+      url: json.data[Math.floor(Math.random()*100)].images.fixed_height.url
+      
       
     }); 
     
