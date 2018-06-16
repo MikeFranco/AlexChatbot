@@ -59,7 +59,7 @@ bot.hear(/gif (.*)/i, (payload, chat, data)=>{
 
 bot.hear(["qué puedes hacer?", "que puedes hacer?", "que puedes hacer"], (payload, chat)=>{
   chat.say({
-    text:"Esto es lo que puedo hacer:"
+    text:"Esto es lo que puedo hacer:",
     quickReplies: ["Buscar un gif", "Cosas que sueles hacer", ]
   })
 });
