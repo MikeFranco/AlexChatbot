@@ -39,12 +39,6 @@ bot.hear([ "bye", "adios", "ciao", "arrivederci", "adiós", "nos vemos" ], (payl
   chat.say("Nos vemos", {typing:true})
 })
 
-bot.hear(["menu", "menú", "dame tu menú", "dame tu menú", "me puedes dar tu menú?", "me puedes dar tu menu?"], (payload, chat)=>{
-  chat.say({
-    text: "Qué necesitas?",
-    quickReplies: ["Programar", "Comer", "Dormir", "Ir al baño"]
-  })
-});
 
 bot.hear(/gif (.*)/i, (payload, chat, data)=>{
   const query = data.match[1];
@@ -53,15 +47,36 @@ bot.hear(/gif (.*)/i, (payload, chat, data)=>{
   
   .then(res => res.json())
   .then(json =>{
-     chat.say({
+    chat.say({
       attachment: 'image',
       url: json.data[Math.floor(Math.random()*10)].images.fixed_height.url
       
       
     }); 
     
-    })
+  })
 })
+
+bot.hear(["qué puedes hacer?", "que puedes hacer?", "que puedes hacer"], (payload, chat)=>{
+  chat.say({
+    text:"Esto es lo que puedo hacer:"
+    quickReplies: ["Buscar un gif", "Cosas que sueles hacer", ]
+  })
+});
+
+bot.hear(["Buscar un gif"], (payload, chat)=>{
+  chat.say("Para buscar un gif, solo necesitas poner la palabra: Gif seguido de lo que quieras buscar...")
+  chat.say("Por favor, solo pon una palabra para buscar un Gif 🙏,🏼")
+  chat.say("Ejemplo: Gif gatos");
+})
+
+bot.hear(["Cosas que sueles hacer", "menu", "menú", "dame tu menú", "dame tu menú", "me puedes dar tu menú?", "me puedes dar tu menu?"], (payload, chat)=>{
+  chat.say({
+    text: "Qué necesitas?",
+    quickReplies: ["Programar", "Comer", "Dormir", "Ir al baño"]
+  })
+});
+
 
 bot.hear(["Programar"], (payload, chat)=>{
   chat.say("Me encanta programar 💙", {typing:true});
@@ -99,7 +114,7 @@ bot.hear('Emily', (payload, chat) => {
 	});
 });
 
-bot.hear(["info"], (payload, char)=>{
+/* bot.hear(["info"], (payload, char)=>{
 
   let id = payload.sender.id;
   console.log(id);
@@ -113,7 +128,7 @@ bot.hear(["info"], (payload, char)=>{
     
   })
   
-})
+}) */
 
 /* bot.on('message', (payload, chat) => {
 	const text = payload.message.text;
