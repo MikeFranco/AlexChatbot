@@ -28,7 +28,7 @@ bot.hear([/hello(Hello)?/i, "hi", "holi", /hola(Hola)?/i, "que onda", "que pez",
 });
 
 
-bot.hear(["cuál es tu edad?", "cuántos años tienes?", "cual es tu edad?", "" ], (payload, chat)=>{
+bot.hear(["Cuándo Nací?", "cuál es tu edad?", "cuántos años tienes?", "cual es tu edad?"], (payload, chat)=>{
   const text= payload.message.text;
   chat.say("Nací el 8 de Junio del 2018 a las 20:43 👶🏼", {typing:true})
 })
@@ -42,7 +42,7 @@ bot.hear([ "bye", "adios", "ciao", "arrivederci", "adiós", "nos vemos" ], (payl
 
 bot.hear(/gif (.*)/i, (payload, chat, data)=>{
   const query = data.match[1];
-  chat.say(`Buscando el mejor Gif de: ${query}`, {typing:true});
+  chat.say(`Este Gif de ${query} me pareció muy bueno 😹`, {typing:true});
   fetch(GIPHY_URL + query)
   
   .then(res => res.json())
@@ -50,26 +50,23 @@ bot.hear(/gif (.*)/i, (payload, chat, data)=>{
     chat.say({
       attachment: 'image',
       url: json.data[Math.floor(Math.random()*10)].images.fixed_height.url
-      
-      
     }); 
-    
   })
 })
 
 bot.hear(["qué puedes hacer?", "que puedes hacer?", "que puedes hacer"], (payload, chat)=>{
   chat.say({
     text:"Esto es lo que puedo hacer:",
-    quickReplies: ["Buscar un gif", "Cosas que sueles hacer", ]
+    quickReplies: ["Buscar un gif", "Cosas que haces", "Cuándo Nací?"]
   })
 });
 
 bot.hear(["Buscar un gif"], (payload, chat)=>{
-  chat.say("Solo necesitas poner la palabra: Gif seguido de lo que quieras buscar... Ejemplo: Gif gatos... Por favor, solo pon una palabra para buscar un Gif 🙏,🏼")
+  chat.say("Solo necesitas poner la palabra: Gif seguido de lo que quieras buscar... Ejemplo: Gif gatos... Por favor, solo pon una palabra para buscar un Gif 🙏", {typing:true})
   
 })
 
-bot.hear(["Cosas que sueles hacer", "menu", "menú", "dame tu menú", "dame tu menú", "me puedes dar tu menú?", "me puedes dar tu menu?"], (payload, chat)=>{
+bot.hear(["Cosas que haces", "menu", "menú", "dame tu menú", "dame tu menú", "me puedes dar tu menú?", "me puedes dar tu menu?"], (payload, chat)=>{
   chat.say({
     text: "Qué necesitas?",
     quickReplies: ["Programar", "Comer", "Dormir", "Ir al baño"]
