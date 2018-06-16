@@ -62,7 +62,7 @@ bot.hear(["qué puedes hacer?", "que puedes hacer?", "que puedes hacer"], (paylo
 });
 
 bot.hear(["Buscar un gif"], (payload, chat)=>{
-  chat.say("Solo necesitas poner la palabra: Gif seguido de lo que quieras buscar... Ejemplo: Gif gatos... Por favor, solo pon una palabra para buscar un Gif 🙏", {typing:true})
+  chat.say("Solo necesitas poner la palabra:    Gif seguido de lo que quieras buscar... Ejemplo: Gif gatos... Por favor, solo pon una palabra para buscar un Gif 🙏", {typing:true})
   
 })
 
