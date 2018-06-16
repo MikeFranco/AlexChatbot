@@ -22,7 +22,7 @@ const bot = new BootBot({
 bot.hear([/hello(Hello)?/i, "hi", "holi", /hola(Hola)?/i, "que onda", "que pez", "que pedo", "que ondon" ], (payload, chat) => {
 
   chat.getUserProfile().then((user) => {
-      chat.say(`Hola ${user.first_name} soy Alex, tu asistente personal 📱`, {typing:true});
+      chat.say(`Hola ${user.first_name}, soy Alex, tu asistente personal 📱`, {typing:true});
 
   });
 });
@@ -65,9 +65,8 @@ bot.hear(["qué puedes hacer?", "que puedes hacer?", "que puedes hacer"], (paylo
 });
 
 bot.hear(["Buscar un gif"], (payload, chat)=>{
-  chat.say("Para buscar un gif, solo necesitas poner la palabra: Gif seguido de lo que quieras buscar...")
-  chat.say("Por favor, solo pon una palabra para buscar un Gif 🙏,🏼")
-  chat.say("Ejemplo: Gif gatos");
+  chat.say("Solo necesitas poner la palabra: Gif seguido de lo que quieras buscar... Ejemplo: Gif gatos... Por favor, solo pon una palabra para buscar un Gif 🙏,🏼")
+  
 })
 
 bot.hear(["Cosas que sueles hacer", "menu", "menú", "dame tu menú", "dame tu menú", "me puedes dar tu menú?", "me puedes dar tu menu?"], (payload, chat)=>{
